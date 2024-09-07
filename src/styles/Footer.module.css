@@ -15,13 +15,13 @@
 }
 
 .rights {
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
   font-size: 12px;
   line-height: 15px;
 }
 
 .rights a {
-  color: var(--violet);
+  color: var(--neutral-grey);
 }
 
 .socials {
@@ -32,9 +32,9 @@
 .socials svg {
   width: 24px;
   height: 24px;
-  fill: var(--dark-sea);
+  fill: var(--accent-green-light);
 }
 
 .socials svg:hover {
-  fill: var(--violet);
+  fill: var(--neutral-grey);
 }

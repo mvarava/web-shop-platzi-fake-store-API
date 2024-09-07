@@ -1,5 +1,5 @@
 body {
-  background: var(--bg);
+  background: var(--bg-dark);
   font-size: 16px;
   line-height: 16px;
   font-family: Montserrat, Roboto, sans-serif;
@@ -81,12 +81,12 @@ li {
 }
 
 section {
-  background: var(--dark);
+  background: var(--accent-green-dark);
   border-radius: 6px;
 }
 
 button {
-  background: var(--violet-dark);
+  background: var(--neutral-white);
   border-radius: 6px;
   padding: 9px 20px;
   font-weight: 600;
@@ -95,7 +95,7 @@ button {
 }
 
 button:hover {
-  background: var(--violet);
+  background: var(--neutral-grey);
 }
 
 h2 {

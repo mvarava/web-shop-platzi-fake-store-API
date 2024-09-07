@@ -12,7 +12,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  background: var(--dark);
+  background: var(--accent-green-dark);
   width: 320px;
   height: 100vh;
   z-index: 99;
@@ -23,7 +23,7 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
-  color: var(--light);
+  color: var(--primary-accent);
   text-align: center;
 }
 
@@ -39,7 +39,7 @@
   width: 100%;
   background: #212123;
   border-radius: 8px;
-  color: var(--light);
+  color: var(--primary-accent);
   padding: 12px 24px;
 }
 
@@ -59,7 +59,7 @@
 .close svg {
   width: 20px;
   height: 20px;
-  stroke: var(--dark-sea);
+  stroke: var(--accent-green-light);
 }
 
 .close:hover svg {
@@ -68,11 +68,11 @@
 
 .link {
   font-size: 13px;
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
   cursor: pointer;
   text-align: center;
 }
 
 .link:hover {
-  color: var(--light);
+  color: var(--primary-accent);
 }

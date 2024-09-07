@@ -11,7 +11,7 @@
 }
 
 .product {
-  background: var(--bg);
+  background: var(--bg-dark);
   border-radius: 8px;
   overflow: hidden;
   width: calc(100% / 5 - 20px);
@@ -46,7 +46,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
-  color: var(--grey);
+  color: var(--accent-light);
   text-transform: uppercase;
   margin-top: 5px;
   margin-bottom: 28px;
@@ -69,7 +69,7 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  color: var(--violet-dark);
+  color: var(--neutral-white);
 }
 
 .oldPrice {
@@ -77,11 +77,11 @@
   font-size: 13px;
   line-height: 16px;
   text-decoration-line: line-through;
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
 }
 
 .purchases {
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;

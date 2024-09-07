@@ -4,7 +4,7 @@
   max-width: calc(100% - 324px);
   padding: 24px;
   column-gap: 32px;
-  color: var(--light);
+  color: var(--primary-accent);
 }
 
 .info {
@@ -73,7 +73,7 @@
 .sizes span {
   font-size: 14px;
   line-height: 17px;
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
 }
 
 .list {
@@ -85,20 +85,20 @@
 .size {
   padding: 4px 8px;
   border-radius: 8px;
-  background: var(--bg);
+  background: var(--bg-dark);
   cursor: pointer;
 }
 
 .size:hover,
 .size.active {
-  background: var(--violet);
+  background: var(--neutral-grey);
 }
 
 .description {
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  color: var(--grey);
+  color: var(--accent-light);
 }
 
 .actions {
@@ -108,7 +108,7 @@
 }
 
 .favourite {
-  background: var(--dark-sea);
+  background: var(--accent-green-light);
   border-radius: 6px;
 }
 
@@ -122,11 +122,11 @@
   justify-content: space-between;
   font-size: 10px;
   line-height: 12px;
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
   margin-top: auto;
 }
 
 .add:disabled {
   cursor: not-allowed;
-  background: var(--bg);
+  background: var(--bg-dark);
 }

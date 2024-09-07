@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --bg: #212123;
   --dark: #191919;
   --dark-sea: #576067;
@@ -8,4 +8,16 @@
   --violet-dark: #6c3eb8;
   --light: #f6f6f7;
   --sea: #616e74;
+} */
+
+:root {
+  --bg-dark: #16423c;
+  --accent-green-dark: #6a9c89;
+  --accent-green-light: #c4dad2;
+  --accent-light: #e9efec;
+  --neutral-dark: #191919;
+  --neutral-grey: #b8b8b8;
+  --neutral-white: #fff;
+  --primary-accent: #8b57c6;
+  --secondary-accent: #ff8225;
 }

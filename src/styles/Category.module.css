@@ -12,7 +12,7 @@
 }
 
 .filter {
-  background: var(--bg);
+  background: var(--bg-dark);
   border-radius: 8px;
   padding: 12px 24px;
   width: max-content;
@@ -35,7 +35,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
   text-align: right;
 }
 

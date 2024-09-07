@@ -19,18 +19,18 @@
 }
 
 .link {
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
   font-size: 14px;
   line-height: 17px;
   text-transform: capitalize;
 }
 
 .link:hover {
-  color: var(--white);
+  color: var(--neutral-dark);
 }
 
 .link.active {
-  color: var(--violet);
+  color: var(--neutral-grey);
 }
 
 .footer {

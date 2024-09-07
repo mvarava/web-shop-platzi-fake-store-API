@@ -8,7 +8,7 @@
   font-size: 119px;
   line-height: 145px;
   text-transform: uppercase;
-  color: var(--bg);
+  color: var(--bg-dark);
   text-align: center;
 }
 
@@ -23,7 +23,7 @@
 .subtitle {
   line-height: 20px;
   text-transform: uppercase;
-  color: var(--sea);
+  color: var(--secondary-accent);
 }
 
 .head {
@@ -31,7 +31,7 @@
   font-size: 42px;
   line-height: 51px;
   text-transform: uppercase;
-  color: var(--light);
+  color: var(--primary-accent);
   max-width: 500px;
   margin: 10px 0 24px 0;
 }
@@ -89,7 +89,7 @@
 }
 
 .content {
-  color: var(--violet);
+  color: var(--neutral-grey);
   font-weight: 300;
   font-size: 70px;
   line-height: 85px;
@@ -116,7 +116,7 @@
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-  color: var(--bg);
+  color: var(--bg-dark);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -124,6 +124,6 @@
 }
 
 .discount span {
-  color: var(--violet);
+  color: var(--neutral-grey);
   font-weight: 700;
 }

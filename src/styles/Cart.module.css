@@ -9,7 +9,7 @@
   margin-top: 24px;
   font-size: 24px;
   line-height: 30px;
-  color: var(--light);
+  color: var(--primary-accent);
 }
 
 .list {
@@ -22,7 +22,7 @@
 
 .item {
   border-radius: 8px;
-  background: var(--bg);
+  background: var(--bg-dark);
   width: 100%;
   padding: 12px 16px;
   display: grid;
@@ -55,7 +55,7 @@
 .category {
   font-size: 10px;
   line-height: 12px;
-  color: var(--grey);
+  color: var(--accent-light);
 }
 
 .price {
@@ -73,12 +73,12 @@
   text-align: center;
   font-size: 14px;
   line-height: 17px;
-  color: var(--dark-sea);
+  color: var(--accent-green-light);
 }
 
 .minus,
 .plus {
-  background: var(--dark-sea);
+  background: var(--accent-green-light);
   border-radius: 6px;
   width: 25px;
   height: 25px;
@@ -96,7 +96,7 @@
 
 .plus:hover,
 .minus:hover {
-  background: var(--violet);
+  background: var(--neutral-grey);
 }
 
 .plus:hover svg,
@@ -129,7 +129,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  color: var(--grey);
+  color: var(--accent-light);
 }
 
 .total span {
