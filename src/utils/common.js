@@ -10,3 +10,5 @@ export const buildUrl = (url, params) => {
 
   return urlWithParams;
 };
+
+export const countTotalPrice = (arr) => arr.reduce((sum, cur) => sum + cur, 0);

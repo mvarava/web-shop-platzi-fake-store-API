@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+import { useGetProductsQuery } from '../../features/api/apiSlice';
 
 import styles from '../../styles/Category.module.css';
+
 import Products from '../Products/Products';
-import { useGetProductsQuery } from '../../features/api/apiSlice';
 
 const Category = () => {
   const { id } = useParams();
-  const { categoriesList } = useSelector(({ categories }) => categories);
+  const { list } = useSelector(({ categories }) => categories);
 
   const defaultValues = {
     title: '',
@@ -17,44 +19,45 @@ const Category = () => {
   };
 
   const defaultParams = {
-    ...defaultValues,
+    categoryId: id,
     limit: 5,
     offset: 0,
-    categoryId: id,
+    ...defaultValues,
   };
 
+  const [isEnd, setEnd] = useState(false);
+  const [cat, setCat] = useState(null);
+  const [items, setItems] = useState([]);
   const [values, setValues] = useState(defaultValues);
   const [params, setParams] = useState(defaultParams);
-  const [currentCategory, setCurrentCategory] = useState(null);
-  const [items, setItems] = useState([]);
-  const [isEnd, setIsEnd] = useState(false);
 
-  const { data, isLoading, isSuccess } = useGetProductsQuery(params);
+  const { data = [], isLoading, isSuccess } = useGetProductsQuery(params);
 
   useEffect(() => {
     if (!id) return;
 
-    setItems([]);
-    setIsEnd(false);
     setValues(defaultValues);
+    setItems([]);
+    setEnd(false);
     setParams({ ...defaultParams, categoryId: id });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-
-  useEffect(() => {
-    if (!id || !categoriesList.length) return;
-
-    const category = categoriesList.find((item) => item.id === +id);
-
-    setCurrentCategory(category);
-  }, [categoriesList, id]);
 
   useEffect(() => {
     if (isLoading) return;
 
-    if (!data.length) return setIsEnd(true);
+    if (!data.length) return setEnd(true);
 
     setItems((_items) => [..._items, ...data]);
   }, [data, isLoading]);
+
+  useEffect(() => {
+    if (!id || !list.length) return;
+
+    const category = list.find((item) => item.id === id * 1);
+
+    setCat(category);
+  }, [list, id]);
 
   const handleChange = ({ target: { value, name } }) => {
     setValues({ ...values, [name]: value });
@@ -64,19 +67,20 @@ const Category = () => {
     e.preventDefault();
 
     setItems([]);
-    setIsEnd(false);
+    setEnd(false);
     setParams({ ...defaultParams, ...values });
   };
 
   const handleReset = () => {
     setValues(defaultValues);
     setParams(defaultParams);
-    setIsEnd(false);
+    setEnd(false);
   };
 
   return (
     <section className={styles.wrapper}>
-      <h2 className={styles.title}>{currentCategory?.name}</h2>
+      <h2 className={styles.title}>{cat?.name}</h2>
+
       <form className={styles.filters} onSubmit={handleSubmit}>
         <div className={styles.filter}>
           <input
@@ -87,7 +91,6 @@ const Category = () => {
             value={values.title}
           />
         </div>
-
         <div className={styles.filter}>
           <input
             type="number"
@@ -98,7 +101,6 @@ const Category = () => {
           />
           <span>Price from</span>
         </div>
-
         <div className={styles.filter}>
           <input
             type="number"
@@ -127,7 +129,7 @@ const Category = () => {
       {!isEnd && (
         <div className={styles.more}>
           <button onClick={() => setParams({ ...params, offset: params.offset + params.limit })}>
-            Load more
+            See more
           </button>
         </div>
       )}
