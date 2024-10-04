@@ -126,7 +126,11 @@
   margin-top: auto;
 }
 
+.add {
+  background: var(--bg-dark);
+}
+
 .add:disabled {
   cursor: not-allowed;
-  background: var(--bg-dark);
+  background: var(--neutral-green);
 }
