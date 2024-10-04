@@ -1,8 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 
-import styles from '../../styles/Products.module.css';
-
 import { useGetProductQuery } from '../../features/api/apiSlice';
 import { ROUTES } from '../../utils/routes';
 import Product from './Product';

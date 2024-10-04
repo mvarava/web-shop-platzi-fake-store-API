@@ -3,20 +3,22 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/constants';
 
 const initialState = {
-  currentUser: [],
+  currentUser: null,
   isLoading: false,
   cart: [],
+  formType: 'signup',
+  showForm: false,
 };
 
-// export const getCategories = createAsyncThunk('categories/getCategories', async (_, thunkApi) => {
-//   try {
-//     const res = await axios(`${BASE_URL}/categories`);
-//     return res.data;
-//   } catch (error) {
-//     console.log(error);
-//     return thunkApi.rejectWithValue(error);
-//   }
-// });
+export const createUser = createAsyncThunk('user/createUser', async (payload, thunkApi) => {
+  try {
+    const res = await axios.post(`${BASE_URL}/users`, payload);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return thunkApi.rejectWithValue(error);
+  }
+});
 
 const userSlice = createSlice({
   name: 'user',
@@ -39,22 +41,24 @@ const userSlice = createSlice({
 
       state.cart = newCart;
     },
+    toggleForm: (state, { payload }) => {
+      state.showForm = payload;
+    },
   },
   extraReducers: (builder) => {
-    //  builder.addCase(getCategories.pending, (state) => {
-    //    state.isLoading = true;
-    //  });
-    //  builder.addCase(getCategories.fulfilled, (state, action) => {
-    //    state.categoriesList = action.payload;
-    //    state.isLoading = false;
-    //  });
-    //  builder.addCase(getCategories.rejected, (state) => {
-    //    console.log('Error');
-    //    state.isLoading = false;
-    //  });
+    //   builder.addCase(getCategories.pending, (state) => {
+    //     state.isLoading = true;
+    //   });
+    builder.addCase(createUser.fulfilled, (state, { payload }) => {
+      state.currentUser = payload;
+    });
+    //   builder.addCase(getCategories.rejected, (state) => {
+    //     console.log('Error');
+    //     state.isLoading = false;
+    //   });
   },
 });
 
-export const { addItemToCart } = userSlice.actions;
+export const { addItemToCart, toggleForm } = userSlice.actions;
 
 export default userSlice.reducer;
