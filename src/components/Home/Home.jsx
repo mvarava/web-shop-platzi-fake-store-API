@@ -3,6 +3,7 @@ import Poster from '../Poster/Poster';
 import Products from '../Products/Products';
 import { useSelector } from 'react-redux';
 import Categories from '../Categories/Categories';
+import Banner from '../Banner/Banner';
 
 const Home = () => {
   const { products, categories } = useSelector((state) => state);
@@ -12,6 +13,7 @@ const Home = () => {
       <Poster />
       <Products products={products.productsList} title="Trending" amount={5} />
       <Categories categories={categories.categoriesList} title="Worth Seeing" amount={5} />
+      <Banner />
     </>
   );
 };
