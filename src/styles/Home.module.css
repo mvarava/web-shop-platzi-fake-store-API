@@ -36,10 +36,6 @@
   margin: 10px 0 24px 0;
 }
 
-.button {
-  background: var(--neutral-green);
-}
-
 .image {
   position: relative;
   flex-grow: 1;

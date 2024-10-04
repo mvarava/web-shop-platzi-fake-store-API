@@ -10,10 +10,13 @@ import LOGO from '../../img/logo.svg';
 import AVATAR from '../../img/avatar.png';
 
 import { toggleForm } from '../../features/user/userSlice';
+import { useGetProductsQuery } from '../../features/api/apiSlice';
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [searchValue, setSearchValue] = useState('');
 
   const { currentUser } = useSelector(({ user }) => user);
 
@@ -21,6 +24,8 @@ const Header = () => {
     name: 'Guest',
     avatar: AVATAR,
   });
+
+  const { data, isLoading } = useGetProductsQuery({ title: searchValue });
 
   useEffect(() => {
     if (!currentUser) return;
@@ -35,6 +40,8 @@ const Header = () => {
       navigate(ROUTES.PROFILE);
     }
   };
+
+  const handleSearch = ({ target: { value } }) => setSearchValue(value);
 
   return (
     <div className={styles.header}>
@@ -62,12 +69,32 @@ const Header = () => {
               name="search"
               placeholder="Search for anyting..."
               autoComplete="off"
-              onChange={() => {}}
-              value=""
+              onChange={handleSearch}
+              value={searchValue}
             />
           </div>
 
-          {false && <div className={styles.box}></div>}
+          {searchValue && (
+            <div className={styles.box}>
+              {isLoading
+                ? 'Loading...'
+                : !data.length
+                ? 'No results found'
+                : data.map(({ title, images, id }) => (
+                    <Link
+                      key={id}
+                      onClick={() => setSearchValue('')}
+                      className={styles.item}
+                      to={`/products/${id}`}>
+                      <div
+                        className={styles.image}
+                        style={{ backgroundImage: `url(${images[0]})` }}
+                      />
+                      <div className={styles.title}>{title}</div>
+                    </Link>
+                  ))}
+            </div>
+          )}
         </form>
 
         <div className={styles.account}>
