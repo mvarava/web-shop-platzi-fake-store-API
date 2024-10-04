@@ -4,19 +4,19 @@ import { BASE_URL } from '../../utils/constants';
 
 const initialState = {
   currentUser: null,
-  isLoading: false,
   cart: [],
+  isLoading: false,
   formType: 'signup',
   showForm: false,
 };
 
-export const createUser = createAsyncThunk('user/createUser', async (payload, thunkApi) => {
+export const createUser = createAsyncThunk('users/createUser', async (payload, thunkAPI) => {
   try {
     const res = await axios.post(`${BASE_URL}/users`, payload);
     return res.data;
-  } catch (error) {
-    console.log(error);
-    return thunkApi.rejectWithValue(error);
+  } catch (err) {
+    console.log(err);
+    return thunkAPI.rejectWithValue(err);
   }
 });
 
