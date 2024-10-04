@@ -86,7 +86,7 @@ section {
 }
 
 button {
-  background: var(--neutral-white);
+  background: var(--neutral-green);
   border-radius: 6px;
   padding: 9px 20px;
   font-weight: 600;
