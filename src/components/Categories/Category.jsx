@@ -10,7 +10,7 @@ import Products from '../Products/Products';
 
 const Category = () => {
   const { id } = useParams();
-  const { list } = useSelector(({ categories }) => categories);
+  const { categoriesList } = useSelector(({ categories }) => categories);
 
   const defaultValues = {
     title: '',
@@ -52,12 +52,12 @@ const Category = () => {
   }, [data, isLoading]);
 
   useEffect(() => {
-    if (!id || !list.length) return;
+    if (!id || !categoriesList.length) return;
 
-    const category = list.find((item) => item.id === id * 1);
+    const category = categoriesList.find((item) => item.id === id * 1);
 
     setCat(category);
-  }, [list, id]);
+  }, [categoriesList, id]);
 
   const handleChange = ({ target: { value, name } }) => {
     setValues({ ...values, [name]: value });
