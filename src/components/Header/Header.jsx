@@ -18,7 +18,7 @@ const Header = () => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  const { currentUser } = useSelector(({ user }) => user);
+  const { currentUser, cart } = useSelector(({ user }) => user);
 
   const [values, setValues] = useState({
     name: 'Guest',
@@ -108,7 +108,7 @@ const Header = () => {
             <svg className={styles['icon-cart']}>
               <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#bag`} />
             </svg>
-            <span className={styles.count}></span>
+            <span className={styles.count}>{cart.length}</span>
           </Link>
         </div>
       </div>
